@@ -65,7 +65,7 @@ class Game {
 
   play() {
     this.handleElements();
-
+    player.getPlayersAtEnd();
     Player.getPlayersInfo();
 
     if (allPlayers !== undefined) {
@@ -102,6 +102,12 @@ class Game {
         player.positionY += 10;
         player.update();
       }
+
+
+      // if(){
+      //   Player.updatePlayersAtEnd();
+      // }
+      
 
       drawSprites();
     }
@@ -141,5 +147,14 @@ class Game {
 
   }
 
+  showRank(){
+    swal({
+      title: `Parabéns ${player.name} ${"\n"}  Seu rank é: ${player.rank}` ,
+      text: "Você chegou a linha de chegada!!",
+      imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png",
+      imageSize: "100x100",
+      confirmButtonText: "OK"
+    })
+  }
     
 }

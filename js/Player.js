@@ -4,6 +4,7 @@ class Player {
     this.index = null;
     this.positionX = 0;
     this.positionY = 0;
+    this.rank = 0;
   }
 
    addPlayer() {
@@ -68,4 +69,17 @@ class Player {
       allPlayers = data.val();
     });
   }
+
+   getplayersAtEnd(){
+    database.ref("playersAtEnd").on("value", (data) => {
+      this.rank = data.val();
+    })
+  }
+
+  static updatePlayersAtEnd(rank){
+    database.ref("/").update({
+      playersAtEnd: rank
+    })
+  }
+
 } 
